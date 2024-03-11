@@ -30,12 +30,18 @@ export default {
         food: this.userData.favoriteFood
       }
     }
+  },
+  methods: {
+    changeName() {
+      this.userData.name = 'Charlie'
+    }
   }
 }
 </script>
 
 <template>
-  <UserCard :user="refinedUserData" />
+  <UserCard :user="refinedUserData" @change-name="changeName" />
+  <!-- <button @click="changeName">Change Now</button> -->
   <BaseCounter />
   <hr />
   <p v-if="message.length % 2 === 0">Even:{{ message.toUpperCase() }}</p>
